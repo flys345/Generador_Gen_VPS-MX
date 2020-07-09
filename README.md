@@ -25,4 +25,3 @@ COMPLETAMENTE FREE!
 ===============
 
 
-TELEGRAM: @marchnickadm
