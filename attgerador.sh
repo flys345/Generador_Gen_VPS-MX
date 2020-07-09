@@ -36,7 +36,7 @@ mv -f $HOME/$1 ${ARQ}/$1
 chmod +x ${ARQ}/$1
 }
 echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
-echo -e "\033[1;36m--------------------KEY GENERATOR UPDATER BY MARCHNICK--------------\033[0m"
+echo -e "\033[1;36m--------------------KEY GENERATOR UPDATER BY JUAN--------------\033[0m"
 read -p "INTRODUZCA SU KEY DE ACTUALIZACIÓN: " Key
 echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
 [[ ! $Key ]] && {
