@@ -92,4 +92,5 @@ echo -e "\033[1;36m-------------------------------------------------------------
 }
 echo -ne "\033[0m"
 apt-get install netcat -y &>/dev/null
+apt-get install net-tools -y &>/dev/null
 sed -i -e 's/\r$//' /usr/bin/gerar.sh
