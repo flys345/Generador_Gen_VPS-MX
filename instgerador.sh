@@ -4,7 +4,10 @@ SCPT_DIR="/etc/SCRIPT"
 SCPresq="aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RoZW9uZWpwYXMvY29uZmlndXJhY2lvbi1yYWl6LW51ZXZhL21hc3Rlci9nZXJhZG9y"
 SUB_DOM='base64 -d'
 rm $(pwd)/$0
+
 ofus () {
+unset server
+server=$(echo ${txt_ofuscatw}|cut -d':' -f1)
 unset txtofus
 number=$(expr length $1)
 for((i=1; i<$number+1; i++)); do
@@ -16,15 +19,16 @@ case ${txt[$i]} in
 "@")txt[$i]="1";;
 "2")txt[$i]="?";;
 "?")txt[$i]="2";;
-"3")txt[$i]="%";;
-"%")txt[$i]="3";;
-"/")txt[$i]="K";;
-"K")txt[$i]="/";;
+"4")txt[$i]="%";;
+"%")txt[$i]="4";;
+"-")txt[$i]="K";;
+"K")txt[$i]="-";;
 esac
 txtofus+="${txt[$i]}"
 done
 echo "$txtofus" | rev
 }
+
 veryfy_fun () {
 [[ ! -d ${IVAR} ]] && touch ${IVAR}
 [[ ! -d ${SCPT_DIR} ]] && mkdir ${SCPT_DIR}
@@ -59,7 +63,7 @@ echo -e "\033[1;31m- \033[1;32mRecibido con exito!"
 [[ -e $HOME/$arqx ]] && veryfy_fun $arqx
 } || echo -e "\033[1;31m- \033[1;31mFalla (no recibido!)"
 done
-[[ ! -e /usr/bin/trans ]] && wget -O /usr/bin/trans https://raw.githubusercontent.com/theonejpas/configuracion-raiz-nueva/master/Install/trans &> /dev/null
+[[ ! -e /usr/bin/trans ]] && wget -O /usr/bin/trans https://raw.githubusercontent.com/rudi9999/Generador_Gen_VPS-MX/master/Install/trans &> /dev/null
 [[ -e /bin/http-server.py ]] && mv -f /bin/http-server.py /bin/http-server.sh && chmod +x /bin/http-server.sh
 [[ $(dpkg --get-selections|grep -w "bc"|head -1) ]] || apt-get install bc -y &>/dev/null
 [[ $(dpkg --get-selections|grep -w "screen"|head -1) ]] || apt-get install screen -y &>/dev/null
@@ -74,7 +78,7 @@ echo "$Key" > $IVAR
 cp $HOME/lista-arq /etc/SCRIPT
 cp /bin/http-server.sh /etc/SCRIPT
 mv /etc/SCRIPT/http-server.sh /etc/SCRIPT/http-server.py
-wget https://raw.githubusercontent.com/theonejpas/configuracion-raiz-nueva/master/gerador/gerar.sh &>/dev/null
+wget https://raw.githubusercontent.com/rudi9999/Generador_Gen_VPS-MX/master/gerador/gerar.sh &>/dev/null
 mv gerar.sh /etc/SCRIPT
 cd /etc/SCRIPT
 rm -rf FERRAMENTA KEY KEY! INVALIDA!
