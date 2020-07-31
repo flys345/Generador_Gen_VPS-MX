@@ -7,7 +7,7 @@ BARRA="\033[1;36m---------------------------------------------------------------
 echo -e "$BARRA"
 cat << EOF
 
-           ADM-NEW KEY GENERADOR BY ➣➣ | JUAN |
+           ADM-NEW KEY GENERADOR BY ➣➣ | @Rufu99 |
            INSTALACIONES: $(cat $IVAR)
            
 EOF
@@ -115,7 +115,10 @@ echo -e "$BARRA"
 echo -e "Key Activa, y Esperando Instalacion!"
 echo -e "$BARRA"
 }
+
 ofus () {
+unset server
+server=$(echo ${txt_ofuscatw}|cut -d':' -f1)
 unset txtofus
 number=$(expr length $1)
 for((i=1; i<$number+1; i++)); do
@@ -127,15 +130,16 @@ case ${txt[$i]} in
 "@")txt[$i]="1";;
 "2")txt[$i]="?";;
 "?")txt[$i]="2";;
-"3")txt[$i]="%";;
-"%")txt[$i]="3";;
-"/")txt[$i]="K";;
-"K")txt[$i]="/";;
+"4")txt[$i]="%";;
+"%")txt[$i]="4";;
+"-")txt[$i]="K";;
+"K")txt[$i]="-";;
 esac
 txtofus+="${txt[$i]}"
 done
 echo "$txtofus" | rev
 }
+
 gerar_key () {
 valuekey="$(date | md5sum | head -c10)"
 valuekey+="$(echo $(($RANDOM*10))|head -c 5)"
