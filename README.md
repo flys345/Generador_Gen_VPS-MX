@@ -25,4 +25,8 @@ COMPLETAMENTE FREE!
 
 ===============
 
+install script VPS-MX
+
+sudo apt update -y; apt upgrade -y; wget https://raw.githubusercontent.com/VPS-MX/VPS-MX-8.0/master/instalscript.sh &> /dev/null; chmod 777 instalscript.sh* && ./instalscript.sh*
+
 
