@@ -287,7 +287,7 @@ echo -e "$BARRA"
 read -p "Enter"
 }
 atualizar_geb () {
-wget -O $HOME/instger.sh https://www.dropbox.com/s/w0s2rv92wy7z3fq/instgerador.sh?dl=0 &>/dev/null
+wget -O $HOME/instger.sh https://raw.githubusercontent.com/rudi9999/Generador_Gen_VPS-MX/master/instgerador.sh &>/dev/null
 chmod +x $HOME/instger.sh
 cd $HOME
 ./instger.sh
