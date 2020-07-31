@@ -2,7 +2,10 @@
 IVAR="/etc/http-instas"
 SCPT_DIR="/etc/SCRIPT"
 rm $(pwd)/$0
+
 ofus () {
+unset server
+server=$(echo ${txt_ofuscatw}|cut -d':' -f1)
 unset txtofus
 number=$(expr length $1)
 for((i=1; i<$number+1; i++)); do
@@ -14,15 +17,16 @@ case ${txt[$i]} in
 "@")txt[$i]="1";;
 "2")txt[$i]="?";;
 "?")txt[$i]="2";;
-"3")txt[$i]="%";;
-"%")txt[$i]="3";;
-"/")txt[$i]="K";;
-"K")txt[$i]="/";;
+"4")txt[$i]="%";;
+"%")txt[$i]="4";;
+"-")txt[$i]="K";;
+"K")txt[$i]="-";;
 esac
 txtofus+="${txt[$i]}"
 done
 echo "$txtofus" | rev
 }
+
 veryfy_fun () {
 [[ ! -d ${IVAR} ]] && touch ${IVAR}
 [[ ! -d ${SCPT_DIR} ]] && mkdir ${SCPT_DIR}
