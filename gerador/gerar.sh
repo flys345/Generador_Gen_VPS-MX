@@ -71,12 +71,19 @@ system=$(echo $(cat -n /etc/issue |grep 1 |cut -d' ' -f6,7,8 |sed 's/1//' |sed '
 echo $system|awk '{print $1, $2}'
 }
 
-meu_ip2 () {
+meu_ip () {
 MIP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
 MIP2=$(wget -qO- ipv4.icanhazip.com)
 [[ "$MIP" != "$MIP2" ]] && IP="$MIP2" || IP="$MIP"
 }
 
+# EXECUCION DE MENU
+export -f msg
+export -f selection_fun
+export -f fun_trans
+export -f  menu_func
+export -f meu_ip
+export -f fun_ip
 clear
 #########VISUALIZACION DE MENU
 msg -bar
