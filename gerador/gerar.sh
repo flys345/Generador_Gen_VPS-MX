@@ -66,6 +66,11 @@ SEMCOR='\e[0m'
  esac
 }
 
+os_system () {
+system=$(echo $(cat -n /etc/issue |grep 1 |cut -d' ' -f6,7,8 |sed 's/1//' |sed 's/      //'))
+echo $system|awk '{print $1, $2}'
+}
+
 # EXECUCION DE MENU
 export -f msg
 export -f selection_fun
@@ -85,7 +90,6 @@ msg -ne "   S.O: " && echo -ne "\033[1;37m$(os_system)"
 msg -ne "         IP: " && echo -e "\033[1;37m$(meu_ip)"
 msg -bar
 
-echo -e "$BARRA"
 cat << EOF
 
            ADM-NEW KEY GENERADOR BY ➣➣ | @Rufu99 |
