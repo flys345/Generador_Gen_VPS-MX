@@ -393,7 +393,7 @@ meu_ip
 unset PID_GEN
 PID_GEN=$(ps x|grep -v grep|grep "http-server.sh")
 [[ ! $PID_GEN ]] && PID_GEN="\033[1;31moff" || PID_GEN="\033[1;32monline"
-echo -e "Directorio de los archivos repasados \033[1;31m${SCPT_DIR}\033[0m"
+echo -e "Directorio de los archivos sincronizados \033[1;31m${SCPT_DIR}\033[0m"
 msg -bar
 echo -e "[1] = GENERAR 1 KEY ALEATORIA"
 echo -e "[2] = ELIMINAR/MIRAR KEYS"
