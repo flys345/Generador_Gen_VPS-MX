@@ -252,11 +252,11 @@ fun_list "$valuekey"
 keyfinal=$(ofus "$IP:8888/$valuekey/$LIST")
 clear
 msg -bar
-echo -e "\033[1;96m>>>>>Key Generada Con Exito!<<<<<"
+echo -e "\033[1;96m   >>>>>Key Generada Con Exito!<<<<<"
 echo -e ""
-echo -e "\033[1;37m$keyfinal"
+echo -e "\033[1;33m  $keyfinal"
 echo -e ""
-echo -e "\033[1;32msudo apt update -y; apt upgrade -y; wget https://raw.githubusercontent.com/rudi9999/VPS-MX-8.0/master/instalscript.sh &> /dev/null; chmod 777 instalscript.sh* && ./instalscript.sh*"
+echo -e "\033[1;37msudo apt update -y; apt upgrade -y; wget https://raw.githubusercontent.com/rudi9999/VPS-MX-8.0/master/instalscript.sh &> /dev/null; chmod 777 instalscript.sh* && ./instalscript.sh*"
 msg -bar
 read -p "Enter para Finalizar"
 }
