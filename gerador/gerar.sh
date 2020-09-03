@@ -77,13 +77,6 @@ MIP2=$(wget -qO- ipv4.icanhazip.com)
 [[ "$MIP" != "$MIP2" ]] && IP="$MIP2" || IP="$MIP"
 }
 
-# EXECUCION DE MENU
-export -f msg
-export -f selection_fun
-export -f fun_trans
-export -f  menu_func
-export -f meu_ip
-export -f fun_ip
 clear
 #########VISUALIZACION DE MENU
 msg -bar
