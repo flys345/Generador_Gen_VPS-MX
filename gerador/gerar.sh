@@ -4,6 +4,87 @@ clear
 [[ -e /etc/newadm-instalacao ]] && BASICINST="$(cat /etc/newadm-instalacao)" || BASICINST="menu PGet.py ports.sh ADMbot.sh message.txt usercodes sockspy.sh POpen.py PPriv.py PPub.py PDirect.py speedtest.py speed.sh utils.sh dropbear.sh apacheon.sh openvpn.sh shadowsocks.sh ssl.sh squid.sh"
 IVAR="/etc/http-instas"
 BARRA="\033[1;36m--------------------------------------------------------------------\033[0m"
+
+#COLORES 
+red=$(tput setaf 1)
+gren=$(tput setaf 2)
+yellow=$(tput setaf 3)
+SCPdir="/etc/newadm" && [[ ! -d ${SCPdir} ]] && exit 1
+SCPusr="${SCPdir}/ger-user" && [[ ! -d ${SCPusr} ]] && mkdir ${SCPusr}
+SCPfrm="/etc/ger-frm" && [[ ! -d ${SCPfrm} ]] && mkdir ${SCPfrm}
+SCPinst="/etc/ger-inst" && [[ ! -d ${SCPfrm} ]] && mkdir ${SCPfrm}
+SCPidioma="${SCPdir}/idioma"
+#PROCESSADOR
+_core=$(printf '%-1s' "$(grep -c cpu[0-9] /proc/stat)")
+_usop=$(printf '%-1s' "$(top -bn1 | awk '/Cpu/ { cpu = "" 100 - $8 "%" }; END { print cpu }')")
+
+#SISTEMA-USO DA CPU-MEMORIA RAM
+ram1=$(free -h | grep -i mem | awk {'print $2'})
+ram2=$(free -h | grep -i mem | awk {'print $4'})
+ram3=$(free -h | grep -i mem | awk {'print $3'})
+
+_ram=$(printf ' %-9s' "$(free -h | grep -i mem | awk {'print $2'})")
+_usor=$(printf '%-8s' "$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2 }')")
+
+# Funcoes Globais
+msg () {
+local colors="/etc/new-adm-color"
+if [[ ! -e $colors ]]; then
+COLOR[0]='\033[1;37m' #BRAN='\033[1;37m'
+COLOR[1]='\e[31m' #VERMELHO='\e[31m'
+COLOR[2]='\e[32m' #VERDE='\e[32m'
+COLOR[3]='\e[33m' #AMARELO='\e[33m'
+COLOR[4]='\e[34m' #AZUL='\e[34m'
+COLOR[5]='\e[91m' #MAGENTA='\e[35m'
+COLOR[6]='\033[1;97m' #MAG='\033[1;36m'
+else
+local COL=0
+for number in $(cat $colors); do
+case $number in
+1)COLOR[$COL]='\033[1;37m';;
+2)COLOR[$COL]='\e[31m';;
+3)COLOR[$COL]='\e[32m';;
+4)COLOR[$COL]='\e[33m';;
+5)COLOR[$COL]='\e[34m';;
+6)COLOR[$COL]='\e[35m';;
+7)COLOR[$COL]='\033[1;36m';;
+esac
+let COL++
+done
+fi
+NEGRITO='\e[1m'
+SEMCOR='\e[0m'
+ case $1 in
+  -ne)cor="${COLOR[1]}${NEGRITO}" && echo -ne "${cor}${2}${SEMCOR}";;
+  -ama)cor="${COLOR[3]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}";;
+  -verm)cor="${COLOR[3]}${NEGRITO}[!] ${COLOR[1]}" && echo -e "${cor}${2}${SEMCOR}";;
+  -verm2)cor="${COLOR[1]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}";;
+  -azu)cor="${COLOR[6]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}";;
+  -verd)cor="${COLOR[2]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}";;
+  -bra)cor="${COLOR[0]}${SEMCOR}" && echo -e "${cor}${2}${SEMCOR}";;
+  "-bar2"|"-bar")cor="${COLOR[1]}=====================================================" && echo -e "${SEMCOR}${cor}${SEMCOR}";;
+ esac
+}
+
+# EXECUCION DE MENU
+export -f msg
+export -f selection_fun
+export -f fun_trans
+export -f  menu_func
+export -f meu_ip
+export -f fun_ip
+clear
+#########VISUALIZACION DE MENU
+msg -bar
+echo -e "\e[97m\033[1;41m       =====>>►► 🐲 PANEL VPS•MX 🐲 ◄◄<<=====       \033[1;37m"
+msg -bar
+echo -e "\033[1;31m   CPU: \033[1;37mNo. DE NUCLEOS:\033[1;32m $_core \033[1;37m\033[1;31m FECHA: \033[1;37m$_hora"
+echo -e "\033[1;31m   RAM: \033[1;37m TOTAL: \033[1;32m$ram1 \033[1;37m USADA: \033[1;32m$ram3 \033[1;37m LIBRE: \033[1;32m$ram2"
+echo -e "\033[1;31m   USO DE RAM: \033[1;32m$_usor       \033[1;31m USO DE CPU: \033[1;32m$_usop"
+msg -ne "   S.O: " && echo -ne "\033[1;37m$(os_system)"
+msg -ne "         IP: " && echo -e "\033[1;37m$(meu_ip)"
+msg -bar
+
 echo -e "$BARRA"
 cat << EOF
 
