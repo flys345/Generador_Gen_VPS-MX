@@ -401,7 +401,7 @@ meu_ip
 unset PID_GEN
 PID_GEN=$(ps x|grep -v grep|grep "http-server.sh")
 [[ ! $PID_GEN ]] && PID_GEN="\033[1;31moff" || PID_GEN="\033[1;32monline"
-echo -e "\033[1;37mDirectorio de los archivos sincronizados \033[1;31m${SCPT_DIR}\033[0m"
+echo -e "\033[1;37mDirectorio de archivos sincronizados \033[1;31m${SCPT_DIR}\033[0m"
 msg -bar
 echo -e "\033[1;32m[1] \033[1;31m> \033[1;37mGENERAR 1 KEY ALEATORIA"
 echo -e "\033[1;32m[2] \033[1;31m> \033[1;37mELIMINAR/MIRAR KEYS"
@@ -411,7 +411,6 @@ echo -e "\033[1;32m[5] \033[1;31m> \033[1;37mENCENDER/APAGAR GENERADOR $PID_GEN\
 echo -e "\033[1;32m[6] \033[1;31m> \033[1;37mVER REGISTRO"
 echo -e "\033[1;32m[7] \033[1;31m> \033[1;37mCAMBIAR CREDITOS"
 echo -e "\033[1;32m[8] \033[1;31m> \033[1;37mACTUALIZAR GENERADOR"
-# echo -e "\033[1;32m[0] \033[1;31m> \msg -bra "\033[1;41mSALIR DEL SCRIPT"
 msg -bar && echo -ne "$(msg -verd "[0]") $(msg -verm2 ">") "&& msg -bra "\033[1;41mSALIR DEL SCRIPT"
 msg -bar
 while [[ ${varread} != @([0-8]) ]]; do
