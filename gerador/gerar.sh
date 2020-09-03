@@ -103,7 +103,7 @@ msg -ne "   S.O: " && echo -ne "\033[1;37m$(os_system)"
 msg -ne "         IP: " && echo -e "\033[1;37m$(meu_ipe)"
 [[ -e ${SCPT_DIR}/message.txt ]] && msg -bar && msg -bra " \033[1;37mKEY GENERADOR BY \033[1;32m➣➣ \033[1;96m $(cat ${SCPT_DIR}/message.txt) "
 msg -bar
-echo -e " KEYS USADAS: \033[1;37m$(cat $IVAR)"
+echo -e " \033[1;37mKEYS USADAS: \033[1;32m$(cat $IVAR)"
 msg -bar
 
 # SCPT_DIR="/etc/SCRIPT"
