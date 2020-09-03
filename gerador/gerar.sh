@@ -71,7 +71,7 @@ system=$(echo $(cat -n /etc/issue |grep 1 |cut -d' ' -f6,7,8 |sed 's/1//' |sed '
 echo $system|awk '{print $1, $2}'
 }
 
-meu_ip2 () {
+meu_ipe () {
 if [[ -e /etc/MEUIPADM ]]; then
 echo "$(cat /etc/MEUIPADM)"
 else
@@ -87,7 +87,7 @@ export -f msg
 export -f selection_fun
 export -f fun_trans
 export -f  menu_func
-export -f meu_ip2
+export -f meu_ipe
 export -f fun_ip
 clear
 #########VISUALIZACION DE MENU
@@ -98,7 +98,7 @@ echo -e "\033[1;31m   CPU: \033[1;37mNo. DE NUCLEOS:\033[1;32m $_core \033[1;37m
 echo -e "\033[1;31m   RAM: \033[1;37m TOTAL: \033[1;32m$ram1 \033[1;37m USADA: \033[1;32m$ram3 \033[1;37m LIBRE: \033[1;32m$ram2"
 echo -e "\033[1;31m   USO DE RAM: \033[1;32m$_usor       \033[1;31m USO DE CPU: \033[1;32m$_usop"
 msg -ne "   S.O: " && echo -ne "\033[1;37m$(os_system)"
-msg -ne "         IP: " && echo -e "\033[1;37m$(meu_ip2)"
+msg -ne "         IP: " && echo -e "\033[1;37m$(meu_ipe)"
 msg -bar
 
 cat << EOF
