@@ -2,6 +2,7 @@
 # INSTALACAO BASICA
 clear
 [[ -e /etc/newadm-instalacao ]] && BASICINST="$(cat /etc/newadm-instalacao)" || BASICINST="menu PGet.py ports.sh ADMbot.sh message.txt usercodes sockspy.sh POpen.py PPriv.py PPub.py PDirect.py speedtest.py speed.sh utils.sh dropbear.sh apacheon.sh openvpn.sh shadowsocks.sh ssl.sh squid.sh"
+SCPT_DIR="/etc/SCRIPT"
 IVAR="/etc/http-instas"
 BARRA="\033[1;36m--------------------------------------------------------------------\033[0m"
 
@@ -99,7 +100,7 @@ echo -e "\033[1;31m   RAM: \033[1;37m TOTAL: \033[1;32m$ram1 \033[1;37m USADA: \
 echo -e "\033[1;31m   USO DE RAM: \033[1;32m$_usor       \033[1;31m USO DE CPU: \033[1;32m$_usop"
 msg -ne "   S.O: " && echo -ne "\033[1;37m$(os_system)"
 msg -ne "         IP: " && echo -e "\033[1;37m$(meu_ipe)"
-msg -bar
+[[ -e ${SCPdir}/message.txt ]] && msg -bar && msg -bra " RESELLER:\033[1;96m $(cat ${SCPdir}/message.txt) "
 
 cat << EOF
 
@@ -107,7 +108,7 @@ cat << EOF
            INSTALACIONES: $(cat $IVAR)
            
 EOF
-SCPT_DIR="/etc/SCRIPT"
+# SCPT_DIR="/etc/SCRIPT"
 [[ ! -e ${SCPT_DIR} ]] && mkdir ${SCPT_DIR}
 INSTA_ARQUIVOS="ADMVPS.zip"
 DIR="/etc/http-shell"
