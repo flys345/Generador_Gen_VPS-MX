@@ -250,7 +250,13 @@ valuekey="$(date | md5sum | head -c10)"
 valuekey+="$(echo $(($RANDOM*10))|head -c 5)"
 fun_list "$valuekey"
 keyfinal=$(ofus "$IP:8888/$valuekey/$LIST")
-echo -e "\033[1;96mKey Generada Con Exito!\n \033[1;37m$keyfinal\n \033[1;32msudo apt update -y; apt upgrade -y; wget https://raw.githubusercontent.com/rudi9999/VPS-MX-8.0/master/instalscript.sh &> /dev/null; chmod 777 instalscript.sh* && ./instalscript.sh*"
+clear
+msg -bar
+echo -e "\033[1;96m>>>>>Key Generada Con Exito!<<<<<"
+echo -e ""
+echo -e "\033[1;37m$keyfinal"
+echo -e ""
+echo -e "\033[1;32msudo apt update -y; apt upgrade -y; wget https://raw.githubusercontent.com/rudi9999/VPS-MX-8.0/master/instalscript.sh &> /dev/null; chmod 777 instalscript.sh* && ./instalscript.sh*"
 msg -bar
 read -p "Enter para Finalizar"
 }
