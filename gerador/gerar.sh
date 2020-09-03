@@ -101,7 +101,7 @@ echo -e "\033[1;31m   RAM: \033[1;37m TOTAL: \033[1;32m$ram1 \033[1;37m USADA: \
 echo -e "\033[1;31m   USO DE RAM: \033[1;32m$_usor       \033[1;31m USO DE CPU: \033[1;32m$_usop"
 msg -ne "   S.O: " && echo -ne "\033[1;37m$(os_system)"
 msg -ne "         IP: " && echo -e "\033[1;37m$(meu_ipe)"
-[[ -e ${SCPT_DIR}/message.txt ]] && msg -bar && msg -bra " KEY GENERADOR BY ➣➣ \033[1;96m $(cat ${SCPT_DIR}/message.txt) "
+[[ -e ${SCPT_DIR}/message.txt ]] && msg -bar && msg -bra " \033[1;37mKEY GENERADOR BY \033[1;32m➣➣ \033[1;96m $(cat ${SCPT_DIR}/message.txt) "
 msg -bar
 echo -e " KEYS USADAS: \033[1;37m$(cat $IVAR)"
 msg -bar
@@ -393,7 +393,7 @@ meu_ip
 unset PID_GEN
 PID_GEN=$(ps x|grep -v grep|grep "http-server.sh")
 [[ ! $PID_GEN ]] && PID_GEN="\033[1;31moff" || PID_GEN="\033[1;32monline"
-echo -e "Directorio de los archivos sincronizados \033[1;31m${SCPT_DIR}\033[0m"
+echo -e "\033[1;37mDirectorio de los archivos sincronizados \033[1;31m${SCPT_DIR}\033[0m"
 msg -bar
 echo -e "\033[1;32m[1] \033[1;31m> \033[1;37mGENERAR 1 KEY ALEATORIA"
 echo -e "\033[1;32m[2] \033[1;31m> \033[1;37mELIMINAR/MIRAR KEYS"
@@ -406,7 +406,7 @@ echo -e "\033[1;32m[8] \033[1;31m> \033[1;37mACTUALIZAR GENERADOR"
 echo -e "\033[1;32m[0] \033[1;31m> \033[1;37mSALIR"
 msg -bar
 while [[ ${varread} != @([0-8]) ]]; do
-read -p "\033[1;37mOpcion: " varread
+read -p "Opcion: " varread
 done
 msg -bar
 if [[ ${varread} = 0 ]]; then
