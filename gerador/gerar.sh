@@ -4,7 +4,7 @@ clear
 [[ -e /etc/newadm-instalacao ]] && BASICINST="$(cat /etc/newadm-instalacao)" || BASICINST="ADMbot.sh C-SSR.sh Crear-Demo.sh PDirect.py PGet.py POpen.py PPriv.py PPub.py Shadowsocks-R.sh Shadowsocks-libev.sh Unlock-Pass-VULTR.sh apacheon.sh blockBT.sh budp.sh dns-netflix.sh   dropbear.sh fai2ban.sh gestor.sh menu message.txt openvpn.sh paysnd.sh ports.sh shadowsocks.sh sockspy.sh speed.sh speedtest.py squid.sh squidpass.sh ssl.sh tcp.sh ultrahost usercodes utils.sh v2ray.sh"
 SCPT_DIR="/etc/SCRIPT"
 IVAR="/etc/http-instas"
-BARRA="\033[1;36m--------------------------------------------------------------------\033[0m"
+BARRA="\033[1;36m-----------------------------------------------------\033[0m"
 _hora=$(printf '%(%H:%M:%S)T') 
 _fecha=$(printf '%(%D)T') 
 
@@ -252,10 +252,10 @@ fun_list "$valuekey"
 keyfinal=$(ofus "$IP:8888/$valuekey/$LIST")
 clear
 msg -bar
-echo -e "\033[1;96m   >>>>>Key Generada Con Exito!<<<<<"
-echo -e ""
-echo -e "\033[1;33m  $keyfinal"
-echo -e ""
+echo -e "\033[1;96m     >>>>>Key Generada Con Exito!<<<<<"
+echo -e $BARRA
+echo -e "\033[1;32m   $keyfinal"
+echo -e $BARRA
 echo -e "\033[1;37msudo apt update -y; apt upgrade -y; wget https://raw.githubusercontent.com/rudi9999/VPS-MX-8.0/master/instalscript.sh &> /dev/null; chmod 777 instalscript.sh* && ./instalscript.sh*"
 msg -bar
 read -p "Enter para Finalizar"
