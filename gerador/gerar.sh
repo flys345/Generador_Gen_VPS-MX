@@ -395,21 +395,18 @@ PID_GEN=$(ps x|grep -v grep|grep "http-server.sh")
 [[ ! $PID_GEN ]] && PID_GEN="\033[1;31moff" || PID_GEN="\033[1;32monline"
 echo -e "Directorio de los archivos sincronizados \033[1;31m${SCPT_DIR}\033[0m"
 msg -bar
-
-# echo -e "\033[1;31m   CPU: \033[1;37mNo. DE NUCLEOS:\033[1;32m $_core \033[1;37m\033[1;31m FECHA: \033[1;37m$_hora"
-
 echo -e "\033[1;32m[1] \033[1;31m> \033[1;37mGENERAR 1 KEY ALEATORIA"
-echo -e "[2] = ELIMINAR/MIRAR KEYS"
-echo -e "[3] = LIMPIAR REGISTRO DE KEYS USADAS"
-echo -e "[4] = ALTERAR ARCHIVOS DE KEY BASICA"
-echo -e "[5] = ENCENDER/APAGAR GENERADOR $PID_GEN\033[0m"
-echo -e "[6] = VER REGISTRO"
-echo -e "[7] = CAMBIAR CREDITOS"
-echo -e "[8] = ACTUALIZAR GENERADOR"
-echo -e "[0] = SALIR"
+echo -e "\033[1;32m[2] \033[1;31m> \033[1;37mELIMINAR/MIRAR KEYS"
+echo -e "\033[1;32m[3] \033[1;31m> \033[1;37mLIMPIAR REGISTRO DE KEYS USADAS"
+echo -e "\033[1;32m[4] \033[1;31m> \033[1;37mALTERAR ARCHIVOS DE KEY BASICA"
+echo -e "\033[1;32m[5] \033[1;31m> \033[1;37mENCENDER/APAGAR GENERADOR $PID_GEN\033[0m"
+echo -e "\033[1;32m[6] \033[1;31m> \033[1;37mVER REGISTRO"
+echo -e "\033[1;32m[7] \033[1;31m> \033[1;37mCAMBIAR CREDITOS"
+echo -e "\033[1;32m[8] \033[1;31m> \033[1;37mACTUALIZAR GENERADOR"
+echo -e "\033[1;32m[0] \033[1;31m> \033[1;37mSALIR"
 msg -bar
 while [[ ${varread} != @([0-8]) ]]; do
-read -p "Opcion: " varread
+read -p "\033[1;37mOpcion: " varread
 done
 msg -bar
 if [[ ${varread} = 0 ]]; then
