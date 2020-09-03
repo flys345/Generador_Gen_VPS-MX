@@ -99,7 +99,7 @@ msg -bar
 msg -ne "   S.O: " && echo -ne "\033[1;37m$(os_system)"
 msg -ne "         IP: " && echo -e "\033[1;37m$(meu_ipe)"
 msg -ne "   RAM"
-msg -ne "   CPU"
+msg -e "   CPU"
 msg -ne "   TOTAL:" && echo -ne "\033[1;32m$ram1"
 msg -ne "   NUCLEOS:" && echo -ne "\033[1;32m $_core"
 msg -ne "   USADA:" && echo -ne "\033[1;32m$ram3"
