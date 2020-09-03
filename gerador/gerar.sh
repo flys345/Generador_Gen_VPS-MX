@@ -100,7 +100,8 @@ echo -e "\033[1;31m   RAM: \033[1;37m TOTAL: \033[1;32m$ram1 \033[1;37m USADA: \
 echo -e "\033[1;31m   USO DE RAM: \033[1;32m$_usor       \033[1;31m USO DE CPU: \033[1;32m$_usop"
 msg -ne "   S.O: " && echo -ne "\033[1;37m$(os_system)"
 msg -ne "         IP: " && echo -e "\033[1;37m$(meu_ipe)"
-[[ -e ${SCPdir}/message.txt ]] && msg -bar && msg -bra " KEY GENERADOR BY ➣➣ | \033[1;96m $(cat ${SCPT_DIR}/message.txt) | "
+[[ -e ${SCPT_DIR}/message.txt ]] && msg -bar && msg -bra " KEY GENERADOR BY ➣➣ \033[1;96m $(cat ${SCPT_DIR}/message.txt) "
+[[ -e ${$IVAR) ]] && msg -bar && msg -bra " KEY USADAS: \033[1;96m $(cat $IVAR) "
 
 cat << EOF
 
