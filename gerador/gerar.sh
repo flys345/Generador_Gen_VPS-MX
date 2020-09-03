@@ -98,8 +98,7 @@ echo -e "\e[97m\033[1;41m       =====>>►► 🐲 GEN VPS•MX 🐲 ◄◄<<===
 msg -bar
 msg -ne "   S.O: " && echo -ne "\033[1;37m$(os_system)"
 msg -ne "         IP: " && echo -e "\033[1;37m$(meu_ipe)"
-msg -ne "   RAM"
-msg -e "   CPU"
+echo -e "   \033[1;31mRAM              CPU"
 msg -ne "   TOTAL:" && echo -ne "\033[1;32m$ram1"
 msg -ne "   NUCLEOS:" && echo -ne "\033[1;32m $_core"
 msg -ne "   USADA:" && echo -ne "\033[1;32m$ram3"
