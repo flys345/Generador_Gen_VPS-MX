@@ -171,10 +171,12 @@ echo -e "[$i] -> ${arqx}"
 arq_list[$i]="${arqx}"
 let i++
 done
+clear
+msg -bar
 echo -e "\033[1;32m[x] > \033[0;31mGENERADOR DE KEYS\033[0m"
 echo -e "\033[1;32m[b] > \033[0;33mINSTALACIÓN VPS-MX\033[0m"
 msg -bar
-read -p "Seleccione los archivos a ser repasados: " readvalue
+read -p "Seleccione el tipo de key: " readvalue
 #CRIA KEY
 [[ ! -e ${DIR}/${KEY} ]] && mkdir ${DIR}/${KEY}
 #PASSA ARQS
