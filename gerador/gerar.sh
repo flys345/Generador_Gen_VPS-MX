@@ -5,6 +5,7 @@ clear
 SCPT_DIR="/etc/SCRIPT"
 IVAR="/etc/http-instas"
 BARRA="\033[1;36m--------------------------------------------------------------------\033[0m"
+_hora=$(printf '%(%D-%H:%M:%S)T') 
 
 #COLORES 
 red=$(tput setaf 1)
@@ -102,14 +103,9 @@ msg -ne "   S.O: " && echo -ne "\033[1;37m$(os_system)"
 msg -ne "         IP: " && echo -e "\033[1;37m$(meu_ipe)"
 [[ -e ${SCPT_DIR}/message.txt ]] && msg -bar && msg -bra " KEY GENERADOR BY ➣➣ \033[1;96m $(cat ${SCPT_DIR}/message.txt) "
 msg -bar
-echo -e "KEYS USADAS: \033[1;37m$(cat $IVAR)"
+echo -e " KEYS USADAS: \033[1;37m$(cat $IVAR)"
+msg -bar
 
-cat << EOF
-
-           ADM-NEW KEY GENERADOR BY ➣➣ | @Rufu99 |
-           INSTALACIONES: $(cat $IVAR)
-           
-EOF
 # SCPT_DIR="/etc/SCRIPT"
 [[ ! -e ${SCPT_DIR} ]] && mkdir ${SCPT_DIR}
 INSTA_ARQUIVOS="ADMVPS.zip"
