@@ -101,7 +101,7 @@ msg -ne "   S.O: " && echo -ne "\033[1;37m$(os_system)"
 msg -ne "       IP: " && echo -e "\033[1;37m$(meu_ipe)"
 echo -e "   \033[1;31mRAM: \033[1;32m$ram1                 \033[1;31mCPU: \033[1;32m $_core"
 echo -e "   \033[1;31mUSADA: \033[1;32m$ram3               \033[1;31mUSO DE CPU: \033[1;32m$_usop"
-echo -e "   \033[1;31mLIBRE: \033[1;32m$ram2            \033[1;31mFECHA: \033[1;37m$_fecha"
+echo -e "   \033[1;31mLIBRE: \033[1;32m$ram2               \033[1;31mFECHA: \033[1;37m$_fecha"
 echo -e "   \033[1;31mUSO DE RAM: \033[1;32m$_usor      \033[1;31mHORA: \033[1;37m$_hora"
 
 
