@@ -121,9 +121,9 @@ mudar_instacao () {
 while [[ ${var[$value]} != 0 ]]; do
 [[ -e /etc/newadm-instalacao ]] && BASICINST="$(cat /etc/newadm-instalacao)" || BASICINST="menu PGet.py ports.sh ADMbot.sh message.txt usercodes sockspy.sh POpen.py PPriv.py PPub.py PDirect.py speedtest.py speed.sh utils.sh dropbear.sh apacheon.sh openvpn.sh shadowsocks.sh ssl.sh squid.sh"
 clear
-echo -e $BARRA
+msg -bar
 echo -e "MENÚ SELECCIÓN DE INSTALACIÓN"
-echo -e $BARRA
+msg -bar
 echo "[0] - FINALIZAR PROCEDIMIENTO"
 i=1
 for arqx in `ls ${SCPT_DIR}`; do
@@ -207,9 +207,9 @@ fi
 rm ${SCPT_DIR}/*.x.c &> /dev/null
 echo "$nombrevalue" > ${DIR}/${KEY}.name
 [[ ! -z $IPFIX ]] && echo "$IPFIX" > ${DIR}/${KEY}/keyfixa
-echo -e "$BARRA"
+msg -bar
 echo -e "Key Activa, y Esperando Instalacion!"
-echo -e "$BARRA"
+msg -bar
 }
 
 ofus () {
@@ -242,7 +242,7 @@ valuekey+="$(echo $(($RANDOM*10))|head -c 5)"
 fun_list "$valuekey"
 keyfinal=$(ofus "$IP:8888/$valuekey/$LIST")
 echo -e "KEY: $keyfinal\nGenerada Con Exito!"
-echo -e "$BARRA"
+msg -bar
 read -p "Enter para Finalizar"
 }
 att_gen_key () {
@@ -261,7 +261,7 @@ let i++
 fi
 done
 keys=($keys)
-echo -e "$BARRA"
+msg -bar
 while [[ -z ${keys[$value]} || -z $value ]]; do
 read -p "Seleccione qué Actualizar[t=todos]: " -e -i 0 value
 done
@@ -286,7 +286,7 @@ rm $KEYDIR/*.x.c &> /dev/null
 let i++
 done
 rm ${SCPT_DIR}/*.x.c &> /dev/null
-echo -e "$BARRA"
+msg -bar
 echo -ne "\033[0m" && read -p "Enter"
 return 0
 fi
@@ -323,7 +323,7 @@ keys="$keys $arqs"
 let i++
 done
 keys=($keys)
-echo -e "$BARRA"
+msg -bar
 while [[ -z ${keys[$value]} || -z $value ]]; do
 read -p "Elija cual eliminar: " -e -i 0 value
 done
@@ -346,7 +346,7 @@ arqsx=$(ofus "$IP:8888/$arqs/$LIST")
  fi
 let i++
 done
-echo -e "$BARRA"
+msg -bar
 echo -ne "\033[0m" && read -p "Enter"
 }
 start_gen () {
@@ -363,7 +363,7 @@ fi
 message_gen () {
 read -p "NUEVO MENSAJE: " MSGNEW
 echo "$MSGNEW" > ${SCPT_DIR}/message.txt
-echo -e "$BARRA"
+msg -bar
 }
 rmv_iplib () {
 echo -e "SERVIDORES DE KEY ACTIVOS!"
@@ -379,7 +379,7 @@ echo "$ip" >> /var/www/html/newlib && echo -e " \033[1;36m[ATUALIZADO]"
 fi
 done
 echo "104.238.135.147" >> /var/www/html/newlib
-echo -e "$BARRA"
+msg -bar
 read -p "Enter"
 }
 atualizar_geb () {
@@ -393,9 +393,8 @@ meu_ip
 unset PID_GEN
 PID_GEN=$(ps x|grep -v grep|grep "http-server.sh")
 [[ ! $PID_GEN ]] && PID_GEN="\033[1;31moff" || PID_GEN="\033[1;32monline"
-echo -e "$BARRA"
 echo -e "Directorio de los archivos repasados \033[1;31m${SCPT_DIR}\033[0m"
-echo -e "$BARRA"
+msg -bar
 echo -e "[1] = GENERAR 1 KEY ALEATORIA"
 echo -e "[2] = ELIMINAR/MIRAR KEYS"
 echo -e "[3] = LIMPIAR REGISTRO DE KEYS USADAS"
@@ -405,11 +404,11 @@ echo -e "[6] = VER REGISTRO"
 echo -e "[7] = CAMBIAR CREDITOS"
 echo -e "[8] = ACTUALIZAR GENERADOR"
 echo -e "[0] = SALIR"
-echo -e "$BARRA"
+msg -bar
 while [[ ${varread} != @([0-8]) ]]; do
 read -p "Opcion: " varread
 done
-echo -e "$BARRA"
+msg -bar
 if [[ ${varread} = 0 ]]; then
 exit
 elif [[ ${varread} = 1 ]]; then
