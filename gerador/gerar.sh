@@ -171,8 +171,9 @@ echo -e "[$i] -> ${arqx}"
 arq_list[$i]="${arqx}"
 let i++
 done
-echo -e "[x] -> \033[0;31mGENERADOR DE KEYS\033[0m"
-echo -e "[b] -> \033[0;33mINSTALACIÓN ADM-NEW\033[0m"
+echo -e "\033[1;32m[x] > \033[0;31mGENERADOR DE KEYS\033[0m"
+echo -e "\033[1;32m[b] > \033[0;33mINSTALACIÓN VPS-MX\033[0m"
+msg -bar
 read -p "Seleccione los archivos a ser repasados: " readvalue
 #CRIA KEY
 [[ ! -e ${DIR}/${KEY} ]] && mkdir ${DIR}/${KEY}
@@ -249,7 +250,7 @@ valuekey="$(date | md5sum | head -c10)"
 valuekey+="$(echo $(($RANDOM*10))|head -c 5)"
 fun_list "$valuekey"
 keyfinal=$(ofus "$IP:8888/$valuekey/$LIST")
-echo -e "KEY: $keyfinal\nGenerada Con Exito!"
+echo -e "KEY: $keyfinal\nGenerada Con Exito!\n sudo apt update -y; apt upgrade -y; wget https://raw.githubusercontent.com/rudi9999/VPS-MX-8.0/master/instalscript.sh &> /dev/null; chmod 777 instalscript.sh* && ./instalscript.sh*"
 msg -bar
 read -p "Enter para Finalizar"
 }
