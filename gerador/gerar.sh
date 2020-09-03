@@ -98,10 +98,20 @@ echo -e "\e[97m\033[1;41m       =====>>►► 🐲 GEN VPS•MX 🐲 ◄◄<<===
 msg -bar
 msg -ne "   S.O: " && echo -ne "\033[1;37m$(os_system)"
 msg -ne "         IP: " && echo -e "\033[1;37m$(meu_ipe)"
-msg -ne "   CPU: No. DE NUCLEOS:"&& echo -ne "\033[1;32m $_core"
-msg -ne "   FECHA: " && echo -ne "\033[1;37m$_hora"
-echo -e "\033[1;31m   RAM: \033[1;37m TOTAL: \033[1;32m$ram1 \033[1;37m USADA: \033[1;32m$ram3 \033[1;37m LIBRE: \033[1;32m$ram2"
-echo -e "\033[1;31m   USO DE RAM: \033[1;32m$_usor       \033[1;31m USO DE CPU: \033[1;32m$_usop"
+msg -ne "   RAM"
+msg -ne "   CPU"
+msg -ne "   TOTAL:" && echo -ne "\033[1;32m$ram1"
+msg -ne "   NUCLEOS:" && echo -ne "\033[1;32m $_core"
+msg -ne "   USADA:" && echo -ne "\033[1;32m$ram3"
+msg -ne "   USO DE CPU:" && echo -ne "\033[1;32m$_usop"
+msg -ne "   LIBRE:" && echo -ne "\033[1;32m$ram2"
+msg -ne "   "
+msg -ne "   USO DE RAM:" && echo -ne "\033[1;32m$_usor"
+
+
+#msg -ne "   FECHA: " && echo -ne "\033[1;37m$_hora"
+#echo -e "\033[1;31m   RAM: \033[1;37m TOTAL: \033[1;32m$ram1 \033[1;37m USADA: \033[1;32m$ram3 \033[1;37m LIBRE: \033[1;32m$ram2"
+#echo -e "\033[1;31m   USO DE RAM: \033[1;32m$_usor       \033[1;31m USO DE CPU: \033[1;32m$_usop"
 
 [[ -e ${SCPT_DIR}/message.txt ]] && msg -bar && msg -bra " \033[1;37mKEY GENERADOR BY \033[1;32m➣➣ \033[1;96m $(cat ${SCPT_DIR}/message.txt) "
 msg -bar
