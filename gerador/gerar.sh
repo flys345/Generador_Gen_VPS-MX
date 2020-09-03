@@ -93,7 +93,7 @@ echo -e "\033[1;31m   CPU: \033[1;37mNo. DE NUCLEOS:\033[1;32m $_core \033[1;37m
 echo -e "\033[1;31m   RAM: \033[1;37m TOTAL: \033[1;32m$ram1 \033[1;37m USADA: \033[1;32m$ram3 \033[1;37m LIBRE: \033[1;32m$ram2"
 echo -e "\033[1;31m   USO DE RAM: \033[1;32m$_usor       \033[1;31m USO DE CPU: \033[1;32m$_usop"
 msg -ne "   S.O: " && echo -ne "\033[1;37m$(os_system)"
-msg -ne "         IP: " && echo -e "\033[1;37m$(meu_ip)"
+msg -ne "         IP: " && echo -e "\033[1;37m$meu_ip"
 msg -bar
 
 cat << EOF
