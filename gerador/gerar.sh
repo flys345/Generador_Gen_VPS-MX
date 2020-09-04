@@ -336,7 +336,6 @@ keys="$keys $arqs"
 let i++
 done
 keys=($keys)
-msg -bar
 while [[ -z ${keys[$value]} || -z $value ]]; do
 read -p "Elija cual eliminar: " -e -i 0 value
 done
