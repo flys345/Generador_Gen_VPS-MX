@@ -131,7 +131,7 @@ echo "[0] - FINALIZAR PROCEDIMIENTO"
 i=1
 for arqx in `ls ${SCPT_DIR}`; do
 [[ $arqx = @(gerar.sh|http-server.py|lista-arq) ]] && continue
-[[ $(echo $BASICINST|grep -w "$arqx") ]] && echo "[$i] - [X] - $arqx" || echo "[$i] - [ ] - $arqx"
+[[ $(echo $BASICINST|grep -w "$arqx") ]] && echo "\033[1;37m[$i] - [\033[1;31mX\033[1;37m] - $arqx" || echo "\033[1;37m[$i] - [ ] - $arqx"
 var[$i]="$arqx"
 let i++
 done
