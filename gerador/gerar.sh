@@ -322,14 +322,15 @@ remover_key () {
 i=0
 [[ -z $(ls $DIR|grep -v "ERROR-KEY") ]] && return
 echo "[$i] Retornar"
+echo -e "$BARRA"
 keys="$keys retorno"
 let i++
 for arqs in `ls $DIR|grep -v "ERROR-KEY"|grep -v ".name"`; do
 arqsx=$(ofus "$IP:8888/$arqs/$LIST")
 if [[ ! -e ${DIR}/${arqs}/used.date ]]; then
-echo -e "$BARRA\n\033[1;32m[$i] \033[1;33m$arqsx\n         \033[1;96m($(cat ${DIR}/${arqs}.name))\033[1;33m (ACTIVA)\033[0m\n$BARRA"
+echo -e "\033[1;32m[$i] \033[1;33m$arqsx\n                   \033[1;96m($(cat ${DIR}/${arqs}.name))\033[1;32m (ACTIVA)\033[0m\n$BARRA"
 else
-echo -e "\033[1;31m[$i] $arqsx ($(cat ${DIR}/${arqs}.name))\033[1;33m ($(cat ${DIR}/${arqs}/used.date) IP: $(cat ${DIR}/${arqs}/used))\033[0m"
+echo -e "\033[1;31m[$i] $arqsx ($(cat ${DIR}/${arqs}.name))\033[1;33m ($(cat ${DIR}/${arqs}/used.date) IP: $(cat ${DIR}/${arqs}/used))\033[0m\n$BARRA"
 fi
 keys="$keys $arqs"
 let i++
