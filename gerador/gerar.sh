@@ -433,7 +433,6 @@ remover_key
 elif [[ ${varread} = 3 ]]; then
 remover_key_usada
 elif [[ ${varread} = 4 ]]; then
-clear
 mudar_instacao
 elif [[ ${varread} = 5 ]]; then
 start_gen
