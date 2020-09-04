@@ -104,11 +104,6 @@ echo -e "   \033[1;31mUSADA: \033[1;32m$ram3               \033[1;31mUSO DE CPU:
 echo -e "   \033[1;31mLIBRE: \033[1;32m$ram2               \033[1;31mFECHA: \033[1;37m$_fecha"
 echo -e "   \033[1;31mUSO DE RAM: \033[1;32m$_usor      \033[1;31mHORA: \033[1;37m$_hora"
 
-
-#msg -ne "   FECHA: " && echo -ne "\033[1;37m$_hora"
-#echo -e "\033[1;31m   RAM: \033[1;37m TOTAL: \033[1;32m$ram1 \033[1;37m USADA: \033[1;32m$ram3 \033[1;37m LIBRE: \033[1;32m$ram2"
-#echo -e "\033[1;31m   USO DE RAM: \033[1;32m$_usor       \033[1;31m USO DE CPU: \033[1;32m$_usop"
-
 [[ -e ${SCPT_DIR}/message.txt ]] && msg -bar && msg -bra " \033[1;37mKEY GENERADOR BY \033[1;32m➣➣ \033[1;96m $(cat ${SCPT_DIR}/message.txt) "
 msg -bar
 echo -e " \033[1;37mKEYS USADAS: \033[1;32m$(cat $IVAR)"
@@ -332,7 +327,7 @@ let i++
 for arqs in `ls $DIR|grep -v "ERROR-KEY"|grep -v ".name"`; do
 arqsx=$(ofus "$IP:8888/$arqs/$LIST")
 if [[ ! -e ${DIR}/${arqs}/used.date ]]; then
-echo -e "\033[1;32m[$i] $arqsx ($(cat ${DIR}/${arqs}.name))\033[1;33m (AGUARDANDO USO)\033[0m"
+echo -e "\033[1;32m[$i] \033[1;33m$arqsx \033[1;96m($(cat ${DIR}/${arqs}.name))\033[1;33m (ACTIVA)\033[0m"
 else
 echo -e "\033[1;31m[$i] $arqsx ($(cat ${DIR}/${arqs}.name))\033[1;33m ($(cat ${DIR}/${arqs}/used.date) IP: $(cat ${DIR}/${arqs}/used))\033[0m"
 fi
