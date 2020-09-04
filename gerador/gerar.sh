@@ -321,6 +321,8 @@ rm ${KEYDIR}/${LIST}
 remover_key () {
 i=0
 [[ -z $(ls $DIR|grep -v "ERROR-KEY") ]] && return
+clear
+msg -bar
 echo "[$i] Retornar"
 echo -e "$BARRA"
 keys="$keys retorno"
