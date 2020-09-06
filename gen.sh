@@ -42,7 +42,6 @@ esac
 mv -f $HOME/$1 ${ARQ}/$1
 chmod +x ${ARQ}/$1
 }
-echo -e "$BARRA"
 meu_ip () {
 MIP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
 MIP2=$(wget -qO- ipv4.icanhazip.com)
@@ -55,7 +54,7 @@ function_verify () {
   echo -e "\n\n\n\033[1;31m====================================================="
   echo -e "\033[1;31m       ¡LA IP $(wget -qO- ipv4.icanhazip.com) NO ESTA AUTORIZADA!"
   echo -e "\033[1;31m                CONATACTE A @Rufu99"
-  echo -e "\033[1;31m====================================================="
+  echo -e "\033[1;31m=====================================================\n\n\n"
   [[ -d /etc/SCRIPT ]] && rm -rf /etc/SCRIPT
   exit 1
   } || {
@@ -66,6 +65,7 @@ function_verify () {
 }
 meu_ip
 function_verify
+echo -e "$BARRA"
 echo -e "\033[1;33mDescargando archivos... "
 echo -e "$BARRA"
 cd $HOME
