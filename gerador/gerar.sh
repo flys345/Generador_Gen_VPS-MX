@@ -95,7 +95,7 @@ export -f fun_ip
 clear
 #########VISUALIZACION DE MENU
 msg -bar
-echo -e "\e[97m\033[1;41m       =====>>►► 🐲 GEN VPS•MX 🐲 ◄◄<<=====       \033[1;37m"
+echo -e "\e[97m\033[1;41m        =====>>►► 🐲 GEN VPS•MX 🐲 ◄◄<<=====         \033[1;37m"
 msg -bar
 msg -ne "   S.O: " && echo -ne "\033[1;37m$(os_system)"
 msg -ne "       IP: " && echo -e "\033[1;37m$(meu_ipe)"
