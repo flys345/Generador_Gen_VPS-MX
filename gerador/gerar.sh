@@ -255,8 +255,6 @@ echo -e "\033[1;96m       >>>>>Key Generada Con Exito!<<<<<"
 echo -e "$BARRA"
 echo -e "\033[1;32m    $keyfinal"
 echo -e "$BARRA"
-echo -e "\033[1;37msudo apt update -y; apt upgrade -y; wget https://raw.githubusercontent.com/rudi9999/VPS-MX-8.0/master/instalscript.sh &> /dev/null; chmod 777 instalscript.sh* && ./instalscript.sh*"
-msg -bar
 read -p "Enter para Finalizar"
 }
 att_gen_key () {
