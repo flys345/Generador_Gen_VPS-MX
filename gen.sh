@@ -52,7 +52,7 @@ echo "$IP" > /usr/bin/vendor_code
 function_verify () {
   permited=$(curl -sSL "https://raw.githubusercontent.com/rudi9999/Generador_Gen_VPS-MX/master/Control-IP")
   [[ $(echo $permited|grep "${IP}") = "" ]] && {
-  echo -e "\n\n\n\033[1;31m=====================================================\n      ¡LA $(wget -qO- ipv4.icanhazip.com) NO ESTA AUTORIZADA!\n          CONATACTE A @Rufu99\n=====================================================\n"
+  echo -e "\n\n\n\033[1;31m=====================================================\n      ¡LA $(wget -qO- ipv4.icanhazip.com) NO ESTA AUTORIZADA!\n                  CONATACTE A @Rufu99\n=====================================================\n"
   [[ -d /etc/SCRIPT ]] && rm -rf /etc/SCRIPT
   exit 1
   } || {
