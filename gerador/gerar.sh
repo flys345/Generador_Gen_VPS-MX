@@ -404,8 +404,7 @@ cd $HOME
 ./instger.sh
 rm $HOME/instger.sh &>/dev/null
 }
-lincks  () {
-clean
+links_inst  () {
 echo -e "$BARRA"
 echo -e "\033[1;37msudo apt update -y; apt upgrade -y; wget https://raw.githubusercontent.com/rudi9999/VPS-MX-8.0/master/instalscript.sh &> /dev/null; chmod 777 instalscript.sh* && ./instalscript.sh*"
 msg -bar
@@ -445,7 +444,7 @@ mudar_instacao
 elif [[ ${varread} = 5 ]]; then
 start_gen
 elif [[ ${varread} = 6 ]]; then
-links
+links_inst
 elif [[ ${varread} = 7 ]]; then
 message_gen
 elif [[ ${varread} = 8 ]]; then
