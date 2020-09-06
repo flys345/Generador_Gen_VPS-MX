@@ -427,7 +427,7 @@ echo -e "\033[1;32m[8] \033[1;31m> \033[1;37mVER REGISTRO"
 echo -e "\033[1;32m[9] \033[1;31m> \033[1;37m[!] \033[1;32mACTUALIZAR GENERADOR"
 msg -bar && echo -ne "$(msg -verd "[0]") $(msg -verm2 ">") "&& msg -bra "\033[1;41mSALIR DEL SCRIPT"
 msg -bar
-while [[ ${varread} != @([0-8]) ]]; do
+while [[ ${varread} != @([0-9]) ]]; do
 read -p "Opcion: " varread
 done
 msg -bar
