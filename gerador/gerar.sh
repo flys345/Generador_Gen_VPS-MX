@@ -410,8 +410,7 @@ echo -e "\e[97m\033[1;41m   =====>>►► LINKS INSTALL SCRIPT VPS•MX ◄◄<<
 msg -bar
 echo -e "\033[1;37msudo apt update -y; apt upgrade -y; wget https://raw.githubusercontent.com/rudi9999/VPS-MX-8.0/master/instalscript.sh &> /dev/null; chmod 777 instalscript.sh* && ./instalscript.sh*"
 msg -bar
-echo -e "Enter para Finalizar"
-read -p "$BARRA2"
+read -p "Enter para Finalizar"
 }
 meu_ip
 unset PID_GEN
