@@ -49,7 +49,20 @@ MIP2=$(wget -qO- ipv4.icanhazip.com)
 [[ "$MIP" != "$MIP2" ]] && IP="$MIP2" || IP="$MIP"
 echo "$IP" > /usr/bin/vendor_code
 }
+function_verify () {
+  permited=$(curl -sSL "https://raw.githubusercontent.com/rudi9999/Generador_Gen_VPS-MX/master/Control-IP")
+  [[ $(echo $permited|grep "${IP}") = "" ]] && {
+  echo -e "\n\n\n\033[1;95m======================================================\n ¡LA $(wget -qO- ipv4.icanhazip.com) NO ESTA AUTORIZADA!,CONATACTE A @Rufu99\n======================================================\n"
+  [[ -d /etc/SCRIPT ]] && rm -rf /etc/SCRIPT
+  exit 1
+  } || {
+  ### INTALAR VERCION DE SCRIPT
+  v1=$(curl -sSL "https://raw.githubusercontent.com/rudi9999/Generador_Gen_VPS-MX/master/Vercion")
+  echo "$v1" > /etc/versin_script
+  }
+}
 meu_ip
+function_verify
 echo -e "\033[1;33mDescargando archivos... "
 echo -e "$BARRA"
 cd $HOME
