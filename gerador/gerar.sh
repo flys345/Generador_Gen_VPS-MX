@@ -5,6 +5,7 @@ clear
 SCPT_DIR="/etc/SCRIPT"
 IVAR="/etc/http-instas"
 BARRA="\033[1;36m-----------------------------------------------------\033[0m"
+BARRA2="\033[1;31m=====================================================\033[0m"
 _hora=$(printf '%(%H:%M:%S)T') 
 _fecha=$(printf '%(%D)T') 
 
@@ -410,7 +411,7 @@ msg -bar
 echo -e "\033[1;37msudo apt update -y; apt upgrade -y; wget https://raw.githubusercontent.com/rudi9999/VPS-MX-8.0/master/instalscript.sh &> /dev/null; chmod 777 instalscript.sh* && ./instalscript.sh*"
 msg -bar
 echo -e "Enter para Finalizar"
-read -p msg -bar
+read -p "$BARRA2"
 }
 meu_ip
 unset PID_GEN
