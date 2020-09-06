@@ -422,10 +422,10 @@ echo -e "\033[1;32m[2] \033[1;31m> \033[1;37mELIMINAR/MIRAR KEYS"
 echo -e "\033[1;32m[3] \033[1;31m> \033[1;37mLIMPIAR REGISTRO DE KEYS USADAS"
 echo -e "\033[1;32m[4] \033[1;31m> \033[1;37mALTERAR ARCHIVOS DE KEY BASICA"
 echo -e "\033[1;32m[5] \033[1;31m> \033[1;37mENCENDER/APAGAR GENERADOR $PID_GEN\033[0m"
-echo -e "\033[1;32m[6] \033[1;31m> \033[1;37mVER REGISTRO"
-echo -e "\033[1;32m[x] \033[1;31m> \033[1;37mVER LINKS DE INSTALACION"
+echo -e "\033[1;32m[6] \033[1;31m> \033[1;37mVER LINKS DE INSTALACION"
 echo -e "\033[1;32m[7] \033[1;31m> \033[1;37mCAMBIAR CREDITOS"
-echo -e "\033[1;32m[8] \033[1;31m> \033[1;37m[!] \033[1;32mACTUALIZAR GENERADOR"
+echo -e "\033[1;32m[8] \033[1;31m> \033[1;37mVER REGISTRO"
+echo -e "\033[1;32m[9] \033[1;31m> \033[1;37m[!] \033[1;32mACTUALIZAR GENERADOR"
 msg -bar && echo -ne "$(msg -verd "[0]") $(msg -verm2 ">") "&& msg -bra "\033[1;41mSALIR DEL SCRIPT"
 msg -bar
 while [[ ${varread} != @([0-8]) ]]; do
@@ -445,14 +445,14 @@ mudar_instacao
 elif [[ ${varread} = 5 ]]; then
 start_gen
 elif [[ ${varread} = 6 ]]; then
-echo -ne "\033[1;36m"
-cat /etc/gerar-sh-log 2>/dev/null || echo "NINGUN REGISTRO EN ESTE MOMENTO"
-echo -ne "\033[0m" && read -p "Enter"
-elif [[ ${varread} = x ]]; then
 links
 elif [[ ${varread} = 7 ]]; then
 message_gen
 elif [[ ${varread} = 8 ]]; then
+echo -ne "\033[1;36m"
+cat /etc/gerar-sh-log 2>/dev/null || echo "NINGUN REGISTRO EN ESTE MOMENTO"
+echo -ne "\033[0m" && read -p "Enter"
+elif [[ ${varread} = 9 ]]; then
 atualizar_geb
 fi
 /usr/bin/gerar.sh
