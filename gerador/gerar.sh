@@ -9,15 +9,6 @@ BARRA2="\033[1;31m=====================================================\033[0m"
 _hora=$(printf '%(%H:%M:%S)T') 
 _fecha=$(printf '%(%D)T') 
 
-#COLORES 
-red=$(tput setaf 1)
-gren=$(tput setaf 2)
-yellow=$(tput setaf 3)
-SCPdir="/etc/newadm" && [[ ! -d ${SCPdir} ]] && exit 1
-SCPusr="${SCPdir}/ger-user" && [[ ! -d ${SCPusr} ]] && mkdir ${SCPusr}
-SCPfrm="/etc/ger-frm" && [[ ! -d ${SCPfrm} ]] && mkdir ${SCPfrm}
-SCPinst="/etc/ger-inst" && [[ ! -d ${SCPfrm} ]] && mkdir ${SCPfrm}
-SCPidioma="${SCPdir}/idioma"
 #PROCESSADOR
 _core=$(printf '%-1s' "$(grep -c cpu[0-9] /proc/stat)")
 _usop=$(printf '%-1s' "$(top -bn1 | awk '/Cpu/ { cpu = "" 100 - $8 "%" }; END { print cpu }')")
@@ -87,13 +78,13 @@ fi
 }
 
 # EXECUCION DE MENU
-#export -f msg
-#export -f selection_fun
-#export -f fun_trans
-#export -f  menu_func
-#export -f meu_ipe
-#export -f fun_ip
-#clear
+export -f msg
+export -f selection_fun
+export -f fun_trans
+export -f  menu_func
+export -f meu_ipe
+export -f fun_ip
+clear
 #########VISUALIZACION DE MENU
 msg -bar
 echo -e "\e[97m\033[1;41m        =====>>►► 🐲 GEN VPS•MX 🐲 ◄◄<<=====         \033[1;37m"
