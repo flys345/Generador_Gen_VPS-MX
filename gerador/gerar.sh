@@ -87,13 +87,13 @@ fi
 }
 
 # EXECUCION DE MENU
-export -f msg
-export -f selection_fun
-export -f fun_trans
-export -f  menu_func
-export -f meu_ipe
-export -f fun_ip
-clear
+#export -f msg
+#export -f selection_fun
+#export -f fun_trans
+#export -f  menu_func
+#export -f meu_ipe
+#export -f fun_ip
+#clear
 #########VISUALIZACION DE MENU
 msg -bar
 echo -e "\e[97m\033[1;41m        =====>>►► 🐲 GEN VPS•MX 🐲 ◄◄<<=====         \033[1;37m"
