@@ -64,15 +64,28 @@ function_verify () {
 }
 
 meu_ip
+
+invalid_key () {
+msg -bar2 && msg -verm "#¡Key Invalida#! " && msg -bar2
+[[ -e $HOME/lista-arq ]] && rm $HOME/lista-arq
+exit 1
+}
+
+while [[ ! $Key ]]; do
+msg -bar2 && msg -ne "# DIGITE LA KEY #: " && read Key
+tput cuu1 && tput dl1
+done
+msg -ne "# Verificando Key # : "
+cd $HOME
+wget -O $HOME/lista-arq $(ofus "$Key")/$IP > /dev/null 2>&1 && echo -e "\033[1;32m Key Completa" || {
+   echo -e "\033[1;91m Key Incompleta"
+   invalid_key
+   exit
+   }
+IP=$(ofus "$Key" | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')
+sleep 1s
 function_verify
 
-echo -e "$BARRA"
-echo -e "\033[1;33mDescargando archivos... "
-echo -e "$BARRA"
-cd $HOME
-REQUEST=$(echo $SCPresq|$SUB_DOM)
-wget -O "$HOME/lista-arq" ${REQUEST}/GERADOR > /dev/null 2>&1
-sleep 1s
 [[ -e $HOME/lista-arq ]] && {
 for arqx in `cat $HOME/lista-arq`; do
 echo -ne "\033[1;33mDescargando: \033[1;31m[$arqx] "
