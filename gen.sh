@@ -86,6 +86,10 @@ msg -bar2 && msg -verm "#¡Key Invalida#! " && msg -bar2
 exit 1
 }
 
+echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
+echo -e "\033[1;36m--------------------KEY GENERATOR BY @Rufu99----------------------\033[0m"
+echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
+
 while [[ ! $Key ]]; do
 msg -bar2 && msg -ne "# DIGITE LA KEY #: " && read Key
 tput cuu1 && tput dl1
@@ -103,8 +107,8 @@ function_verify
 [[ -e $HOME/lista-arq ]] && {
 REQUEST=$(ofus "$Key" |cut -d'/' -f2)
 for arqx in `cat $HOME/lista-arq`; do
-echo -ne "\033[1;33mDescargando: \033[1;31m[$arqx] "
-wget -O $HOME/$arqx ${IP}:81/${REQUEST}/${arqx} > /dev/null 2>&1 && echo -e "\033[1;31m- \033[1;32mRecibido con éxito!" || echo -e "\033[1;31m- \033[1;31mFalla (no recibido!)"
+echo -ne "\033[1;33mDescargando \033[1;31m[$arqx] "
+wget -O $HOME/$arqx ${IP}:81/${REQUEST}/${arqx} > /dev/null 2>&1 && echo -e "\033[1;31m- \033[1;32mRecibido!" || echo -e "\033[1;31m- \033[1;31mFalla (no recibido!)"
 [[ -e $HOME/$arqx ]] && veryfy_fun $arqx
 done
 [[ ! -e /usr/bin/trans ]] && wget -O /usr/bin/trans https://raw.githubusercontent.com/rudi9999/Generador_Gen_VPS-MX/master/Install/trans &> /dev/null
@@ -128,15 +132,15 @@ cd /etc/SCRIPT
 rm -rf FERRAMENTA KEY KEY! INVALIDA!
 rm $HOME/lista-arq
 sed -i -e 's/\r$//' /usr/bin/gerar.sh
-echo -e "$BARRA"
+msg -bar
 echo "/usr/bin/gerar.sh" > /usr/bin/gerar && chmod +x /usr/bin/gerar
 echo -e "\033[1;33m Perfecto, utilize el comando \033[1;31mgerar.sh o gerar \033[1;33mpara administrar sus keys y
  actualizar la base del servidor"
-echo -e "$BARRA"
+msg -bar
 } || {
-echo -e "$BARRA"
+msg -bar
 echo -e "\033[1;33mKey Invalida!"
-echo -e "$BARRA"
+msg -bar
 }
 echo -ne "\033[0m"
 apt-get install netcat -y &>/dev/null
