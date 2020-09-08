@@ -335,24 +335,37 @@ if [[ -e $HOME/lista-arq ]] && [[ ! $(cat $HOME/lista-arq|grep "KEY INVALIDA!") 
    tput cuu1 && tput dl1
    pontos+="."
    done
-   sleep 1s
-   msg -bar2
-   listaarqs="$(locate "lista-arq"|head -1)" && [[ -e ${listaarqs} ]] && rm $listaarqs   
-   cat /etc/bash.bashrc|grep -v '[[ $UID != 0 ]] && TMOUT=15 && export TMOUT' > /etc/bash.bashrc.2
-   echo -e '[[ $UID != 0 ]] && TMOUT=15 && export TMOUT' >> /etc/bash.bashrc.2
-   mv -f /etc/bash.bashrc.2 /etc/bash.bashrc
-   echo "${SCPT_DIR}/menu" > /usr/bin/menu && chmod +x /usr/bin/menu
-   echo "${SCPT_DIR}/menu" > /usr/bin/adm && chmod +x /usr/bin/adm
-   echo "$Key" > ${SCPdir}/key.txt
-   [[ -d ${SCPinstal} ]] && rm -rf ${SCPinstal}   
-   [[ ${#id} -gt 2 ]] && echo "es" > ${SCPidioma} || echo "${id}" > ${SCPidioma}
-   echo -e "${cor[2]}         DESEAS INSTALAR NOTI-BOT?(Default n)"
-   echo -e "\033[1;34m  (Deves tener Telegram y el BOT: @Noti_VPSMX_Bot)"
-   msg -bar2
-   read -p " [ s | n ]: " NOTIFY   
-   [[ "$NOTIFY" = "s" || "$NOTIFY" = "S" ]] && NOTIFY
-   msg -bar2
-   [[ ${byinst} = "true" ]] && install_fim
+[[ ! -e /usr/bin/trans ]] && wget -O /usr/bin/trans https://raw.githubusercontent.com/rudi9999/Generador_Gen_VPS-MX/master/Install/trans &> /dev/null
+[[ -e /bin/http-server.py ]] && mv -f /bin/http-server.py /bin/http-server.sh && chmod +x /bin/http-server.sh
+[[ $(dpkg --get-selections|grep -w "bc"|head -1) ]] || apt-get install bc -y &>/dev/null
+[[ $(dpkg --get-selections|grep -w "screen"|head -1) ]] || apt-get install screen -y &>/dev/null
+[[ $(dpkg --get-selections|grep -w "nano"|head -1) ]] || apt-get install nano -y &>/dev/null
+[[ $(dpkg --get-selections|grep -w "curl"|head -1) ]] || apt-get install curl -y &>/dev/null
+[[ $(dpkg --get-selections|grep -w "netcat"|head -1) ]] || apt-get install netcat -y &>/dev/null
+[[ $(dpkg --get-selections|grep -w "apache2"|head -1) ]] || apt-get install apache2 -y &>/dev/null
+sed -i "s;Listen 80;Listen 81;g" /etc/apache2/ports.conf
+service apache2 restart > /dev/null 2>&1 &
+IVAR2="/etc/key-gerador"
+echo "$Key" > $IVAR
+cp $HOME/lista-arq /etc/SCRIPT
+cp /bin/http-server.sh /etc/SCRIPT
+mv /etc/SCRIPT/http-server.sh /etc/SCRIPT/http-server.py
+wget https://raw.githubusercontent.com/rudi9999/Generador_Gen_VPS-MX/master/gerador/gerar.sh &>/dev/null
+mv gerar.sh /etc/SCRIPT
+cd /etc/SCRIPT
+rm -rf FERRAMENTA KEY KEY! INVALIDA!
+rm $HOME/lista-arq
+sed -i -e 's/\r$//' /usr/bin/gerar.sh
+echo -e "$BARRA"
+echo "/usr/bin/gerar.sh" > /usr/bin/gerar && chmod +x /usr/bin/gerar
+echo -e "\033[1;33m Perfecto, utilize el comando \033[1;31mgerar.sh o gerar \033[1;33mpara administrar sus keys y
+ actualizar la base del servidor"
+echo -e "$BARRA"
+} || {
+echo -e "$BARRA"
+echo -e "\033[1;33mKey Invalida!"
+echo -e "$BARRA"
+}
 else
 invalid_key
 fi
