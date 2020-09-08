@@ -64,20 +64,25 @@ function_verify () {
   }
 }
 
-echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
-echo -e "\033[1;36m--------------------KEY GENERATOR BY----------------------\033[0m"
-echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
-read -p "INTRODUZCA SU KEY DE INSTALACIÓN: " Key
-echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
-[[ ! $Key ]] && {
-echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
-echo -e "\033[1;33mKey inválida!"
-echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
-exit
+invalid_key () {
+msg -bar2 && msg -verm "#¡Key Invalida#! " && msg -bar2
+[[ -e $HOME/lista-arq ]] && rm $HOME/lista-arq
+exit 1
 }
 
-meu_ip
-IP=$(ofus "$Key" | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')
+while [[ ! $Key ]]; do
+msg -bar2 && msg -ne "# DIGITE LA KEY #: " && read Key
+tput cuu1 && tput dl1
+done
+msg -ne "# Verificando Key # : "
+cd $HOME
+wget -O $HOME/lista-arq $(ofus "$Key")/$IP > /dev/null 2>&1 && echo -e "\033[1;32m Key Completa" || {
+   echo -e "\033[1;91m Key Incompleta"
+   invalid_key
+   exit
+   }
+IP=$(ofus "$Key" | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}') && echo "$IP" > /usr/bin/vendor_code
+sleep 1s
 function_verify
 
 echo -e "$BARRA"
