@@ -77,6 +77,7 @@ exit
 }
 
 meu_ip
+IP=$(ofus "$Key" | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')
 function_verify
 
 echo -e "$BARRA"
