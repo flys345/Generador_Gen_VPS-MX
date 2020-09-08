@@ -80,8 +80,16 @@ apt-get install apache2 -y &>/dev/null
 sed -i "s;Listen 80;Listen 81;g" /etc/apache2/ports.conf
 service apache2 restart > /dev/null 2>&1 &
 IVAR2="/etc/key-gerador"
-echo "$Key" > $IVAR2
+echo "$Key" > $IVAR
+cp $HOME/lista-arq /etc/SCRIPT
+cp /bin/http-server.sh /etc/SCRIPT
+mv /etc/SCRIPT/http-server.sh /etc/SCRIPT/http-server.py
+wget https://raw.githubusercontent.com/rudi9999/Generador_Gen_VPS-MX/master/gerador/gerar.sh &>/dev/null
+mv gerar.sh /etc/SCRIPT
+cd /etc/SCRIPT
+rm -rf FERRAMENTA KEY KEY! INVALIDA!
 rm $HOME/lista-arq
+sed -i -e 's/\r$//' /usr/bin/gerar.sh
 echo -e "\033[1;33m Perfecto, utilize el comando \033[1;31mgerar.sh o gerar \033[1;33mpara administrar sus keys y
  actualizar la base del servidor"
 echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
