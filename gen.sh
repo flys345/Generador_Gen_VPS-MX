@@ -101,7 +101,7 @@ case $1 in
 "sockspy.sh"|"PDirect.py"|"PPub.py"|"PPriv.py"|"POpen.py"|"PGet.py")ARQ="${SCPT_DIR}/";; #Instalacao
 *)ARQ="${SCPT_DIR}/";; #Ferramentas
 esac
-mv -f ${SCPT_DIR}/$1 ${ARQ}/$1
+mv -f ${SCPinstal}/$1 ${ARQ}/$1
 chmod +x ${ARQ}/$1
 }
 
